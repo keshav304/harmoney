@@ -110,18 +110,18 @@ const MessageBoard = () => {
         {sortAscending ? 'Oldest First' : 'Newest First'}
       </button>
       <input
-      type="text"
-      className="input-box search-input"
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-      placeholder="Search messages..."
-    />
+        type="text"
+        className="input-box search-input"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder="Search messages..."
+      />
       <button className='delete-all-post-btn' onClick={handleDeleteAll}>Delete All Posts</button>
       {messagesToDisplay.length === 0 ? (
-  <p>{noMessages ? 'No messages available.' : 'No messages match the search criteria.'}</p>
-) : (
-  <MessageList messages={messagesToDisplay} onDelete={handleDelete} />
-)}
+        <p>{noMessages ? 'No messages available.' : 'No messages match the search criteria.'}</p>
+      ) : (
+        <MessageList messages={messagesToDisplay} onDelete={handleDelete} />
+      )}
 
       <Pagination
         currentPage={currentPage}
