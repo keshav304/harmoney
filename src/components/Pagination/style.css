@@ -1,0 +1,21 @@
+/* Style for pagination buttons */
+.pagination-btn{
+    background-color: #3498db; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .pagination-btn:hover {
+    background-color: #2980b9; 
+  }
+  
+  .pagination-btn[disabled] {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+  }
+  
