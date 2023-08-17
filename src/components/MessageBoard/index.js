@@ -10,6 +10,7 @@ const MessageBoard = () => {
   const [sortAscending, setSortAscending] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
+  const [noMessages, setNoMessages] = useState(false);
 
   const fetchMessages = async () => {
     try {
@@ -19,6 +20,7 @@ const MessageBoard = () => {
         },
       });
       setMessages(response.data);
+      setNoMessages(response.data.length === 0);
     } catch (error) {
       console.error('Error fetching messages:', error);
     }
@@ -115,7 +117,12 @@ const MessageBoard = () => {
       placeholder="Search messages..."
     />
       <button className='delete-all-post-btn' onClick={handleDeleteAll}>Delete All Posts</button>
-      <MessageList messages={messagesToDisplay} onDelete={handleDelete} />
+      {messagesToDisplay.length === 0 ? (
+  <p>{noMessages ? 'No messages available.' : 'No messages match the search criteria.'}</p>
+) : (
+  <MessageList messages={messagesToDisplay} onDelete={handleDelete} />
+)}
+
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
